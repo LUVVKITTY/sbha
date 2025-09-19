@@ -1,0 +1,108 @@
+:root {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+body {
+  direction: rtl;
+  margin: 20px;
+  background: #8B0000; /* أحمر غامق */
+  color: #fff;
+  font-size: 20px;
+}
+
+.card {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.controls input[type=number] {
+  width: 100px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 18px;
+}
+
+.list {
+  display: grid;
+  gap: 15px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.phrase {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #006400; /* أخضر غامق */
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.count {
+  min-width: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #000;
+}
+
+.total {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}

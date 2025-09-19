@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>سبحة إلكترونية</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <h1>السبحة الإلكترونية</h1>
+
+    <div class="controls">
+      <label for="limit">عدد التسبيحات:</label>
+      <input id="limit" type="number" min="1" value="33">
+      <button onclick="resetAll()">تصفير الكل</button>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <span class="phrase">سبحان الله</span>
+        <div class="group">
+          <button onclick="increment(this)">+</button>
+          <span class="count">0</span>
+          <button onclick="reset(this)">↺</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="phrase">الحمد لله</span>
+        <div class="group">
+          <button onclick="increment(this)">+</button>
+          <span class="count">0</span>
+          <button onclick="reset(this)">↺</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="phrase">لا إله إلا الله</span>
+        <div class="group">
+          <button onclick="increment(this)">+</button>
+          <span class="count">0</span>
+          <button onclick="reset(this)">↺</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="phrase">الله أكبر</span>
+        <div class="group">
+          <button onclick="increment(this)">+</button>
+          <span class="count">0</span>
+          <button onclick="reset(this)">↺</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <span class="phrase">سبحانك إني كنت من الظالمين</span>
+        <div class="group">
+          <button onclick="increment(this)">+</button>
+          <span class="count">0</span>
+          <button onclick="reset(this)">↺</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="total">الإجمالي: <span id="total">0</span></div>
+  </div>
+
+  <!-- صوت تنبيه -->
+  <audio id="beep">
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+  </audio>
+
+  <script>
+    function increment(btn) {
+      const countEl = btn.parentElement.querySelector(".count");
+      const limit = parseInt(document.getElementById("limit").value) || Infinity;
+      let count = parseInt(countEl.textContent);
+      if (count < limit) {
+        count++;
+        countEl.textContent = count;
+        updateTotal();
+        if (count === limit) {
+          notify();
+        }
+      }
+    }
+
+    function reset(btn) {
+      const countEl = btn.parentElement.querySelector(".count");
+      countEl.textContent = 0;
+      updateTotal();
+    }
+
+    function resetAll() {
+      document.querySelectorAll(".count").forEach(c => c.textContent = 0);
+      updateTotal();
+    }
+
+    function updateTotal() {
+      let total = 0;
+      document.querySelectorAll(".count").forEach(c => {
+        total += parseInt(c.textContent);
+      });
+      document.getElementById("total").textContent = total;
+    }
+
+    function notify() {
+      // صوت
+      document.getElementById("beep").play();
+      // اهتزاز (لو الموبايل بيدعم)
+      if (navigator.vibrate) {
+        navigator.vibrate(300);
+      }
+    }
+  </script>
+</body>
+</html>
